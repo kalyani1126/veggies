@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Console appender -->
+    <appender name="LOGOUT.CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss} [%c] %m%n"/>
+        </layout>
+    </appender>
+    
+    <!-- Daily rolling file appenders -->
+
+    <appender name="WS.FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/vgs/logs/ws.log"/>
+        <param name="Append" value="true"/>
+        <param name="datePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %m%n"/>
+        </layout>
+    </appender>
+    
+    <appender name="SYSTEM.FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/vgs/logs/system.log"/>
+        <param name="Append" value="true"/>
+        <param name="datePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %m%n"/>
+        </layout>
+    </appender>
+    
+    <appender name="REQUEST.FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/vgs/logs/request.log"/>
+        <param name="Append" value="true"/>
+        <param name="datePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p] %m%n"/>
+        </layout>
+    </appender>
+    
+
+    <!-- ***************************************** -->
+
+    <category name="com.ws.system.log" additivity="false">
+        <priority value="FILE"/>
+        <appender-ref ref="SYSTEM.FILE"/>
+    </category>
+    <category name="com.ws.log" additivity="false">
+        <priority value="ALL"/>
+        <appender-ref ref="WS.FILE"/>
+    </category>
+    <category name="com.ws.request.log" additivity="false">
+        <priority value="ALL"/>
+        <appender-ref ref="REQUEST.FILE"/>
+    </category>
+
+    <!-- ***************************************** -->
+    <!-- PLEASE DON'T MODIFY except for production Mode -->
+    <!-- priority : overrides categories if those are not defined. -->
+    <!-- ***************************************** -->
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="SYSTEM.FILE"/>
+    </root>
+
+</log4j:configuration>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- version: 1.0.47 -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.vgs.com/xmlns/f1"
+            xmlns:f1="http://www.vgs.com/xmlns/f1"
+            elementFormDefault="qualified"
+            version="1.0">
+
+    <xsd:include schemaLocation="../CommonTypes.xsd" />
+
+    <xsd:complexType name="GetAccountTokensResponse">
+        <xsd:sequence>
+            <xsd:element name="status" minOccurs="1" maxOccurs="1" type="f1:StatusType" />
+            <xsd:element name="accountid" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="lcid" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="mobile" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="email" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="commomnname" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="nabtoken" minOccurs="0" maxOccurs="1" type="xsd:string" />
+            <xsd:element name="dvtoken" minOccurs="0" maxOccurs="1" type="xsd:string" />
+            <xsd:element name="refreshtoken" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="ssotoken" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <xsd:element name="locationuri" minOccurs="0"  maxOccurs="1" type="xsd:string" />
+            <!-- IDAM Account info TBD-->
+        </xsd:sequence>
+        <xsd:attribute name="userid" type="xsd:string" use="required" />
+    </xsd:complexType>
+
+    <xsd:element name="account-tokens-get-response" type="f1:GetAccountTokensResponse" />
+
+    <xsd:complexType name="AccountTokenOperationResponse">
+        <xsd:sequence>
+            <xsd:element name="status" minOccurs="1" maxOccurs="1" type="f1:StatusType" />
+        </xsd:sequence>
+        <xsd:attribute name="userid" type="xsd:string" use="required" />
+    </xsd:complexType>
+
+    <xsd:element name="account-token-delete-response" type="f1:AccountTokenOperationResponse" />
+</xsd:schema>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://cxf.apache.org/core
+                           http://cxf.apache.org/schemas/core.xsd
+                           http://cxf.apache.org/jaxrs
+                           http://cxf.apache.org/schemas/jaxrs.xsd
+                           http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="wsProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+        <list>
+            <value>classpath:vgs-ws.properties</value>
+        </list>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="false"/>
+    </bean>
+
+    <bean id="tokensService" class="com.vgs.ws.service.impl.TokensServiceImpl" autowire="byType"/>
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+    <bean id="beanLocator" class="com.vgs.ws.util.BeanLocator" factory-method="getInstance"
+          scope="singleton"/>
+
+    <context:component-scan base-package="com.vgs.ws.service" />
+    
+
+</beans>

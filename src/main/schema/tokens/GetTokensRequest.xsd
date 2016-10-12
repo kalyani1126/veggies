@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- version: 1.0.47 -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.vgs.com/xmlns/f1"
+            xmlns:f1="http://www.vgs.com/xmlns/f1"
+            elementFormDefault="qualified"
+            version="1.0">
+
+    <xsd:include schemaLocation="../CommonTypes.xsd" />
+
+    <xsd:complexType name="GetAccountTokensRequest">
+        <xsd:sequence>
+            <xsd:element name="deviceinfo" minOccurs="1" maxOccurs="1" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="userid" type="xsd:string" use="required" />
+    </xsd:complexType>
+
+    <xsd:element name="get-account-tokens-request" type="f1:GetAccountTokensRequest" />
+</xsd:schema>
+
