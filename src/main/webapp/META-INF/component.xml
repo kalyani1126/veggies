@@ -1,0 +1,17 @@
+<component>
+    <name>vgs</name>
+    <componentType>MANAGED_APPLICATION</componentType>
+    <aliases>
+        <alias>vgs</alias>
+    </aliases>
+    <context>webservices</context>
+    <componentSettings>
+        <!-- logger.properties -->
+        <componentSetting>
+            <fileName>WEB-INF/classes/vgs-logger.properties</fileName>
+            <variable>LOG_SOFTWARE</variable>
+            <value>vgs</value>
+            <description>log software</description>
+        </componentSetting>
+	</componentSettings>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- version: 1.0.47 -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:f1="http://www.vgs.com/xmlns/f1" targetNamespace="http://www.vgs.com/xmlns/f1"
+            elementFormDefault="qualified" version="1.0">
+    <xsd:complexType name="StatusType">
+        <xsd:sequence>
+            <xsd:element name="code" type="xsd:string" />
+            <xsd:element name="msg" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
