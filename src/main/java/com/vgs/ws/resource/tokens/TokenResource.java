@@ -116,7 +116,7 @@ public class TokenResource extends CoreResource {
         RestExecuter re = new RestExecuter() {
             @Override
             public Response execute() throws Exception {
-                return TokenResource.this.getAccountTokensWithDevInfoAux();
+                return TokenResource.this.getTokensWithDevInfoAux();
             }
 
             @Override
@@ -195,7 +195,7 @@ public class TokenResource extends CoreResource {
      *
      * @throws WSException
      */
-    private Response getAccountTokensWithDevInfoAux() throws WSException {
+    private Response getTokensWithDevInfoAux() throws WSException {
 
         AccountTokensMarshaller accountTokensMarshaller = new AccountTokensMarshaller();
         try {

@@ -70,6 +70,13 @@ public class AuthenticationException extends Exception {
     }
 
     /**
+     * @param message
+     */
+    public AuthenticationException(AuthStatusError authStatus) {
+        this.authStatus = authStatus;
+    }
+    
+    /**
      * @return Returns the authStatus.
      */
     public AuthStatusError getAuthStatus() {
